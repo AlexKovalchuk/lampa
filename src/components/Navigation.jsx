@@ -1,14 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { routes } from "../config";
-
-// import Logo from "../assets/images/logo.svg";
+import './Navigation.scss'
+import Logo from "../assets/images/logo.svg";
 
 export const Navigation = () => (
   <div className="header-wrapper">
     <header className="header-item">
       <Link to={routes.home} className="react-link">
-        {/*<img className="logo" src={Logo} alt="React" />*/}
+        <img className="logo" src={Logo} alt="React" />
         <h2>React</h2>
       </Link>
       <nav>
