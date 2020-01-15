@@ -1,11 +1,25 @@
-import React from "react";
-import './Goods.css';
+import React, { useEffect } from 'react';
+import { connect } from "react-redux";
 
-export const Goods = props => {
+const GoodsComponent = props => {
+  const { form } = props;
+  useEffect(() => {
+    console.log('form', form);
+  });
 
   return (
-    <div className="home-container">
-      <h1 className="home-title">Goods</h1>
+    <div className='lampa-page-container'>
+      <h1>GOODS</h1>
     </div>
-  );
+  )
 };
+
+const mapStateToProps = state => {
+  return {
+    form: state.form
+  };
+};
+
+const mapDispatchToProps = {};
+
+export const Goods = connect(mapStateToProps, mapDispatchToProps)(GoodsComponent);

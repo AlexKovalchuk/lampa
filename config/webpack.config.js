@@ -115,14 +115,6 @@ module.exports = function(webpackEnv) {
           sourceMap: isEnvProduction && shouldUseSourceMap,
         },
       },
-      // {
-      //   test: /\.scss$/,
-      //   loaders: [
-      //     require.resolve('style-loader'),
-      //     require.resolve('css-loader'),
-      //     require.resolve('sass-loader'),
-      //   ]
-      // },
     ].filter(Boolean);
     if (preProcessor) {
       loaders.push(
