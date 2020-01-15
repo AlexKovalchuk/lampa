@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-// import { carsReducer } from "../pages/Cars/store/cars/cars.reducer";
+import { reducer as formReducer } from 'redux-form'
 
 export const rootReducer = combineReducers({
-  test: {test: 'test'}
+  form: formReducer,
 });

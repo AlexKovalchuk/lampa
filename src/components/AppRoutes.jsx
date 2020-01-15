@@ -1,6 +1,6 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import { Home } from "../pages";
+import { Goods } from "../pages";
 import { NotFound, Navigation } from "../components";
 import { routes } from "../config";
 import "./AppRoutes.scss";
@@ -10,7 +10,7 @@ export const AppRoutes = () => (
     <Navigation />
     <div className="component-container">
       <Switch>
-        <Route exact path={routes.home} component={Home} />
+        <Route exact path={routes.goods} component={Goods} />
         <Route component={NotFound} />
       </Switch>
     </div>

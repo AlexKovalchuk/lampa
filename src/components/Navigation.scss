@@ -6,8 +6,9 @@
 
   .header-item {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     height: 35px;
+    padding: 0 50px;
 
     .react-link {
       display: flex;
@@ -27,6 +28,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  justify-content: flex-end;
 
   li {
     flex: 1 1 auto;
