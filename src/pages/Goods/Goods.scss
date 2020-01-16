@@ -1,0 +1,20 @@
+.goods-page__container {
+  width: 100%;
+
+  .goods-page__title {
+    text-align: center;
+  }
+  .goods-page__goods-container {
+    width: 100%;
+    padding: 0 50px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .goods-item__container {
+      width: 30%;
+      margin: 20px 0;
+    }
+
+  }
+}

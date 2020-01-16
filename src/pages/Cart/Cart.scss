@@ -1,0 +1,27 @@
+.cart-page__container {
+  padding: 20px;
+}
+
+.cart-page__items-and-form-wrapper {
+  display: flex;
+
+  .cart-page__item-container {
+    flex: 3;
+    display: flex;
+    flex-direction: column;
+  }
+  .cart-page__form-container {
+    flex: 1;
+  }
+  .cart-item-change-amount-container {
+    flex: 1;
+  }
+
+}
+
+.cart-page__total-price-container {
+  margin: 20px 0 0 0;
+  font-weight: 600;
+  font-size: 20px;
+  color: red;
+}

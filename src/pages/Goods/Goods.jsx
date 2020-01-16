@@ -1,25 +1,53 @@
-import React, { useEffect } from 'react';
-import { connect } from "react-redux";
+import React, {useEffect} from 'react';
+import {connect} from "react-redux";
+import {GoodsItem} from "./GoodsComponents/GoodsItem";
+import {addItemToCard} from '../Cart/store/cart.actions';
+import './Goods.scss';
 
 const GoodsComponent = props => {
-  const { form } = props;
+  const {goods, addItemToCard, cart} = props;
   useEffect(() => {
-    console.log('form', form);
+
   });
 
+  const buyItemHandler = id => {
+    const {goodsList} = goods;
+    const item = goodsList.find(item => item.id === id);
+    const itemForCart = cart.cartData.find(item => item.id === id);
+    if (!itemForCart) addItemToCard(item)
+  };
+
+  const renderGoodsItems = () => {
+    const {goodsList} = goods;
+    return goodsList.map((item, index) => {
+      return (
+        <div key={`goods-item-key-${index}`} className='goods-item__container'>
+          <GoodsItem item={item} handler={buyItemHandler}/>
+        </div>
+      )
+    })
+  };
+
   return (
-    <div className='lampa-page-container'>
-      <h1>GOODS</h1>
+    <div className='goods-page__container'>
+      <h1 className='goods-page__title'>GOODS</h1>
+      <div className='goods-page__goods-container'>
+        {renderGoodsItems()}
+      </div>
     </div>
   )
 };
 
 const mapStateToProps = state => {
+  const {goods, cart} = state;
   return {
-    form: state.form
+    goods,
+    cart,
   };
 };
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  addItemToCard,
+};
 
 export const Goods = connect(mapStateToProps, mapDispatchToProps)(GoodsComponent);
