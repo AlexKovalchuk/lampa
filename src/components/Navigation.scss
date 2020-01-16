@@ -30,6 +30,15 @@
   list-style: none;
   justify-content: flex-end;
 
+  .cart-icon-navigation-container {
+    display: flex;
+    flex-direction: row;
+    .price-icon-value {
+      font-size: 14px;
+      color: dodgerblue;
+    }
+  }
+
   li {
     flex: 1 1 auto;
     margin: 0;

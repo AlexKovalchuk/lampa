@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { CartItem } from './CartComponents/CartItem';
+import CartForm from './CartComponents/CartForm';
 import {increaseItemCounter, removeItemFromCart } from './store/cart.actions'
 
 
 import './Cart.scss';
 
 const CartComponent = props => {
-  const {cart, increaseItemCounter, removeItemFromCart} = props;
+  const {cart, cartForm, increaseItemCounter, removeItemFromCart} = props;
   const {totalPrice, cartData} = cart;
   useEffect(() => {
 
@@ -28,6 +29,10 @@ const CartComponent = props => {
     else removeItemFromCart(id);
   };
 
+  const orderSubmit = () => {
+    console.log('handleSubmit')
+  }
+
   return (
     <div className='cart-page__container'>
       <h1 className='cart-page__title'>Cart</h1>
@@ -36,7 +41,7 @@ const CartComponent = props => {
           {renderItems()}
         </div>
         <div className='cart-page__form-container'>
-          form...
+          <CartForm handleSubmit={orderSubmit} cartForm={cartForm} />
         </div>
       </div>
 
@@ -49,9 +54,10 @@ const CartComponent = props => {
 };
 
 const mapStateToProps = state => {
-  const {cart} = state;
+  const {cart, form} = state;
   return {
     cart,
+    cartForm: form.cartForm,
   };
 };
 

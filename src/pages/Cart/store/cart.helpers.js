@@ -1,6 +1,21 @@
-export const INITIAL_STATE = {
-  cartData: [],
-  totalPrice: 0,
-};
+export const validateCartForm = (formProps) => {
+  const errors = {};
 
-export const PUT_ITEM_TO_CART = 'PUT_ITEM_TO_CART';
+  if(!formProps.firstName){
+    errors.firstName = "First name is required";
+  }
+
+  if(!formProps.lastName){
+    errors.lastName = "Last name is required";
+  }
+
+  if(!formProps.address){
+    errors.address = "Address is required";
+  }
+
+  if(!formProps.phone){
+    errors.phone = "Phone is required";
+  }
+
+  return errors;
+};

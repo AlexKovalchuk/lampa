@@ -1,0 +1,8 @@
+.redux-form-field-container {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 5px 0 5px;
+  .redux-form-field-error {
+    color: red;
+  }
+}
