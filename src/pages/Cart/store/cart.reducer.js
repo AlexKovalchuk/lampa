@@ -3,11 +3,18 @@ import {
   PUT_ITEM_TO_CART,
   INCREASE_ITEM_COUNTER,
   REMOVE_ITEM_FROM_CART,
+  INIT_CART_FROM_LS
 } from "./cart.constants";
+
+import {saveCartToLocalStorage} from './cart.helpers';
 
 export const cartReducer = (state = INITIAL_STATE, action) => {
   const {type, payload} = action;
+  let newState = null;
   switch (type) {
+
+    case INIT_CART_FROM_LS:
+      return action.payload;
 
     case INCREASE_ITEM_COUNTER:
       const {id, newCount} = payload;
@@ -21,7 +28,9 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
           return item;
         }
       });
-      return {totalPrice: totalPriceIncreaseItemCount, cartData: IncreaseItemCountCartData};
+      newState = {totalPrice: totalPriceIncreaseItemCount, cartData: IncreaseItemCountCartData};
+      saveCartToLocalStorage(newState);
+      return newState;
 
     case PUT_ITEM_TO_CART:
       let totalPricePutItem = payload.item.price;
@@ -30,9 +39,9 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
         return item
       });
       putItemCartData.push(payload.item);
-
-
-      return {totalPrice: totalPricePutItem, cartData: putItemCartData};
+      newState = {totalPrice: totalPricePutItem, cartData: putItemCartData};
+      saveCartToLocalStorage(newState);
+      return newState;
 
     case REMOVE_ITEM_FROM_CART:
       let totalPriceRemoveItem = 0;
@@ -42,7 +51,9 @@ export const cartReducer = (state = INITIAL_STATE, action) => {
           return item;
         }
       });
-      return {totalPrice: totalPriceRemoveItem, cartData: removeItemCartData};
+      newState = {totalPrice: totalPriceRemoveItem, cartData: removeItemCartData};
+      saveCartToLocalStorage(newState);
+      return newState;
     default: return state;
   }
 };

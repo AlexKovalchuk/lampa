@@ -4,9 +4,14 @@ import { routes } from "../config";
 import './Navigation.scss'
 import Logo from "../assets/images/logo.svg";
 import {connect} from "react-redux";
+import {initCartFromLocalStorage} from '../pages/Cart/store/cart.actions';
 
 export const NavigationComponent = props => {
-  const {cart} = props;
+  const {cart, initCartFromLocalStorage} = props;
+  useEffect(() => {
+    initCartFromLocalStorage();
+  },[]);
+
   useEffect(() => {
 
   }, [cart]);
@@ -29,7 +34,7 @@ export const NavigationComponent = props => {
       </header>
     </div>
   );
-}
+};
 
 const mapStateToProps = state => {
   const {cart} = state;
@@ -39,6 +44,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
+  initCartFromLocalStorage
 };
 
 export const Navigation = connect(mapStateToProps, mapDispatchToProps)(NavigationComponent);

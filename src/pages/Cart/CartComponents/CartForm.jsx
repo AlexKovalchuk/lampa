@@ -30,12 +30,11 @@ const validate = (formProps) => {
 const CartFormComponent = props => {
   const { handleSubmit, cartForm } = props;
   useEffect(() => {
-    // console.log('useEffect cartForm', cartForm)
+
   }, [cartForm])
 
   const onClickHandler = () => {
-    console.log(' onClickHandlercartForm', cartForm);
-    if(!cartForm.syncErrors) handleSubmit()
+    if(!cartForm.syncErrors) handleSubmit();
   };
 
 

@@ -19,3 +19,7 @@ export const validateCartForm = (formProps) => {
 
   return errors;
 };
+
+export const saveCartToLocalStorage = (cart) => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+};
