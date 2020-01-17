@@ -30,7 +30,6 @@ const CartComponent = props => {
   };
 
   const orderSubmit = customer => {
-    console.log('customer', customer);
     const order = {customer, cart};
     sendOrderToFirebase(order)
   };

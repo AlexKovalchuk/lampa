@@ -4,12 +4,13 @@ import {
   INCREASE_ITEM_COUNTER,
   INIT_CART_FROM_LS,
 } from './cart.constants'
+import {sendOrderToFB} from './cart.services';
 
 
 export const sendOrderToFirebase = order => {
-  console.log('order', order);
   return async dispatch => {
-
+    sendOrderToFB(order);
+    alert('Order was sent.');
   }
 };
 
