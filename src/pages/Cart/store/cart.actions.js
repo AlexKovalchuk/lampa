@@ -5,6 +5,14 @@ import {
   INIT_CART_FROM_LS,
 } from './cart.constants'
 
+
+export const sendOrderToFirebase = order => {
+  console.log('order', order);
+  return async dispatch => {
+
+  }
+};
+
 export const addItemToCard = item => {
   return dispatch => {
     dispatch({
@@ -43,4 +51,4 @@ export const initCartFromLocalStorage = () => {
         payload: JSON.parse(cart),
       })
   }
-}
+};

@@ -2,13 +2,13 @@ import React, { useEffect } from 'react';
 import { connect } from "react-redux";
 import { CartItem } from './CartComponents/CartItem';
 import CartForm from './CartComponents/CartForm';
-import {increaseItemCounter, removeItemFromCart } from './store/cart.actions'
+import {increaseItemCounter, removeItemFromCart, sendOrderToFirebase } from './store/cart.actions'
 
 
 import './Cart.scss';
 
 const CartComponent = props => {
-  const {cart, cartForm, increaseItemCounter, removeItemFromCart} = props;
+  const {cart, cartForm, increaseItemCounter, removeItemFromCart, sendOrderToFirebase} = props;
   const {totalPrice, cartData} = cart;
   useEffect(() => {
 
@@ -29,9 +29,11 @@ const CartComponent = props => {
     else removeItemFromCart(id);
   };
 
-  const orderSubmit = () => {
-    console.log('handleSubmit')
-  }
+  const orderSubmit = customer => {
+    console.log('customer', customer);
+    const order = {customer, cart};
+    sendOrderToFirebase(order)
+  };
 
   return (
     <div className='cart-page__container'>
@@ -64,6 +66,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = {
   increaseItemCounter,
   removeItemFromCart,
+  sendOrderToFirebase,
 };
 
 export const Cart = connect(mapStateToProps, mapDispatchToProps)(CartComponent);

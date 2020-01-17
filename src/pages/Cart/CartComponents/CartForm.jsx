@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {Form, Button} from 'react-bootstrap';
-import { Field, reduxForm, SubmissionError } from 'redux-form';
+import {Field, reduxForm} from 'redux-form';
 import {validateCartForm} from '../store/cart.helpers';
 import ReduxFormField from '../../../components/reduxFormField/ReduxFormFIeld';
 import './CartForm.scss'
@@ -8,19 +8,19 @@ import './CartForm.scss'
 const validate = (formProps) => {
   const errors = {};
 
-  if(!formProps.firstName){
+  if (!formProps.firstName) {
     errors.firstName = "First name is required";
   }
 
-  if(!formProps.lastName){
+  if (!formProps.lastName) {
     errors.lastName = "Last name is required";
   }
 
-  if(!formProps.address){
+  if (!formProps.address) {
     errors.address = "Address is required";
   }
 
-  if(!formProps.phone){
+  if (!formProps.phone) {
     errors.phone = "Phone is required";
   }
 
@@ -28,32 +28,30 @@ const validate = (formProps) => {
 };
 
 const CartFormComponent = props => {
-  const { handleSubmit, cartForm } = props;
+  const {handleSubmit, cartForm} = props;
   useEffect(() => {
 
   }, [cartForm])
 
   const onClickHandler = () => {
-    if(!cartForm.syncErrors) handleSubmit();
+    if (!cartForm.syncErrors) handleSubmit(cartForm.values);
   };
-
-
 
 
   return (
     <div className='cart-form-container'>
       <Form>
         <div className='cart-form-field-container'>
-          <Field name="firstName" component={ReduxFormField} type="text" label='First Name' />
+          <Field name="firstName" component={ReduxFormField} type="text" label='First Name'/>
         </div>
         <div className='cart-form-field-container'>
-          <Field name="lastName" component={ReduxFormField} type="text" label='Last Name' />
+          <Field name="lastName" component={ReduxFormField} type="text" label='Last Name'/>
         </div>
         <div className='cart-form-field-container'>
-          <Field name="address" component={ReduxFormField} type="text" label='Address' />
+          <Field name="address" component={ReduxFormField} type="text" label='Address'/>
         </div>
         <div className='cart-form-field-container'>
-          <Field name="phone" component={ReduxFormField} type="text" label='Phone' />
+          <Field name="phone" component={ReduxFormField} type="text" label='Phone'/>
         </div>
         <div className='cart-form-button-container'>
           <Button
