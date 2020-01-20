@@ -6,7 +6,7 @@ import Logo from "../assets/images/logo.svg";
 import {connect} from "react-redux";
 import {initCartFromLocalStorage} from '../pages/Cart/store/cart.actions';
 
-export const NavigationComponent = props => {
+const NavigationComponent = props => {
   const {cart, initCartFromLocalStorage} = props;
   useEffect(() => {
     initCartFromLocalStorage();

@@ -69,3 +69,4 @@ const mapDispatchToProps = {
 };
 
 export const Cart = connect(mapStateToProps, mapDispatchToProps)(CartComponent);
+export default Cart;
