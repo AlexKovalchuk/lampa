@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {GoodsItem} from "./GoodsComponents/GoodsItem";
 import {addItemToCard} from '../Cart/store/cart.actions';
 import './Goods.scss';
+import './store/greeter';
 
 const GoodsComponent = props => {
   const {goods, addItemToCard, cart} = props;
