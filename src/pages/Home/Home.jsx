@@ -1,6 +1,7 @@
 import React from "react";
+import { connect } from "react-redux";
 
-export const Home = props => {
+const HomeComponent = props => {
 
   return (
     <div className="home-container">
@@ -8,3 +9,14 @@ export const Home = props => {
     </div>
   );
 };
+
+const mapStateToProps = () => {
+  return {};
+};
+
+const mapDispatchToProps = {
+
+};
+
+const Home = connect(mapStateToProps, mapDispatchToProps)(HomeComponent)
+export default Home;

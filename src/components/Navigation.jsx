@@ -19,13 +19,14 @@ const NavigationComponent = props => {
   return (
     <div className="header-wrapper">
       <header className="header-item">
-        <Link to={routes.goods} className="react-link">
+        <Link to={routes.home} className="react-link">
           <img className="logo" src={Logo} alt="React" />
-          <h2>Goods</h2>
+          <h2>Home</h2>
         </Link>
         <nav>
           <ul className="site-navigation">
             <li className='cart-icon-navigation-container'>
+              <Link to={routes.goods}>Goods</Link>
               <Link to={routes.cart}>Cart</Link>
               <span className='price-icon-value'>{priceIcon}</span>
             </li>

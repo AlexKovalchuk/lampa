@@ -68,5 +68,5 @@ const mapDispatchToProps = {
   sendOrderToFirebase,
 };
 
-export const Cart = connect(mapStateToProps, mapDispatchToProps)(CartComponent);
+const Cart = connect(mapStateToProps, mapDispatchToProps)(CartComponent);
 export default Cart;

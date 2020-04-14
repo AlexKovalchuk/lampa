@@ -5,6 +5,7 @@ import "./AppRoutes.scss";
 import {Navigation} from "../components";
 const Goods = lazy(() => import('../pages/Goods/Goods'));
 const Cart = lazy(() => import('../pages/Cart/Cart'));
+const Home = lazy(() => import('../pages/Home/Home'));
 const {NotFound} = lazy(() => import('../components/NotFound'));
 
 export const AppRoutes = () => {
@@ -14,7 +15,8 @@ export const AppRoutes = () => {
       <div className="component-container">
         <Suspense fallback={<div>Loading...</div>}>
           <Switch>
-            <Route exact path={routes.goods} component={Goods}/>
+            <Route exact path={routes.home} component={Home}/>
+            <Route path={routes.goods} component={Goods}/>
             <Route path={routes.cart} component={Cart}/>
             <Route component={NotFound}/>
           </Switch>

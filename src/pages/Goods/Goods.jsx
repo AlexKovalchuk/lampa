@@ -27,7 +27,7 @@ const GoodsComponent = props => {
       )
     })
   };
-  console.log('Goods RENDER')
+
   return (
     <div className='goods-page__container'>
       <h1 className='goods-page__title'>GOODS</h1>
@@ -50,5 +50,5 @@ const mapDispatchToProps = {
   addItemToCard,
 };
 
-export const Goods = connect(mapStateToProps, mapDispatchToProps)(GoodsComponent);
+const Goods = connect(mapStateToProps, mapDispatchToProps)(GoodsComponent);
 export default Goods;
